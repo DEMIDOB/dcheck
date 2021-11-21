@@ -1,0 +1,76 @@
+body {
+    padding-left: 10%;
+    padding-right: 10%;
+    font-family: Helvetica, serif;
+}
+
+.number {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.name {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.name-phone {
+    vertical-align: bottom;
+}
+
+.phoneText {
+    font-size: 30px;
+    text-align: right;
+}
+
+.products {
+    font-size: 30px;
+}
+
+.product {
+    margin-top: 15 px;
+}
+
+.fullPrice {
+    margin-top: 40px;
+    font-size: 30px;
+    text-align: right;
+}
+
+.productPrice {
+    text-align: right;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.price::after {
+    content: " ₽";
+    font-weight: bold;
+}
+
+.head {
+    margin-bottom: 30px;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+}
+
+.flexrow {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.flexrow > div {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    margin-right: 10%;
+}
+
+.flexrow > div:last-child {
+     margin-right: 0;
+}

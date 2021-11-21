@@ -1,0 +1,9 @@
+.idea/
+
+imgs/
+out/
+venv/
+
+*.zip
+
+data.csv
