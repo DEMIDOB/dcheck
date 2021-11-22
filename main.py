@@ -67,6 +67,13 @@ def gen_individual_imgs(data_filename: str):
         price_start_idx = product_title.lower().find("цена")
         price_str = product_title[price_start_idx:]
         price = re.sub("[^0-9\.\,]", "", price_str).replace(",", ".")
+
+        while True:
+            if price.startswith("."):
+                price = price[1:]
+                continue
+            break
+
         products[product_title] = Product(product_title[:price_start_idx], price=float(price))
 
     for i in range(len(data["Фамилия"])):
