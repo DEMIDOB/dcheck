@@ -64,15 +64,12 @@ def gen_individual_imgs(data_filename: str):
         if "цена" not in product_title.lower():
             continue
 
-        price_start_idx = product_title.lower().find("цена:")
+        price_start_idx = product_title.lower().find("цена")
         price_str = product_title[price_start_idx:]
         price = re.sub("[^0-9\.\,]", "", price_str).replace(",", ".")
         products[product_title] = Product(product_title[:price_start_idx], price=float(price))
 
-    # print(data[list(products.keys())[1]])
-
     for i in range(len(data["Фамилия"])):
-    # for i in range(11, 12):
         l_name = str(data["Фамилия"][i]).lower().strip()
         f_name = str(data["Имя"][i]).lower().strip()
 
@@ -84,8 +81,11 @@ def gen_individual_imgs(data_filename: str):
 
         phone = re.sub("\D", "", str(data["Телефон"][i]).split(",")[0].lower().strip())[:-1]
 
-        if phone[0] != "9":
-            phone = phone[1:]
+        try:
+            if phone[0] != "9":
+                phone = phone[1:]
+        except:
+            continue
 
         phone = "8-" + phone[:3] + "-" + phone[3:6] + "-" + phone[6:8] + "-" + phone[8:]
         # their_total = float(re.sub("[^0-9\.]", "", str(data["Сумма к оплате"][i])))
