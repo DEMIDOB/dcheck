@@ -104,7 +104,7 @@ def gen_individual_imgs(data_filename: str):
 
         for product_title in products:
             amount_str = re.sub("[^0-9\.]", "", str(data[product_title][i]))
-            amount = int(float(amount_str)) if amount_str != "" else None
+            amount = float(amount_str) if amount_str != "" else None
             if amount is None:
                 continue
 
@@ -201,7 +201,7 @@ def main():
         for filename in os.listdir("imgs"):
             os.remove(f"imgs/{filename}")
 
-        gen_individual_imgs("data.csv")
+        gen_individual_imgs("try.csv")
 
     combine_images()
 
